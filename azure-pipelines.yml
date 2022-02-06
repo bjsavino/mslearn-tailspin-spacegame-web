@@ -53,9 +53,10 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
+    
 - task: DotNetCoreCLI@2
   displayName: Run Unit Tests - $(buildConfiguration)
-  input:
+  inputs:
     command: test
     arguments: --configuration $(buildConfiguration) --no-build
     publishTestResults: true
